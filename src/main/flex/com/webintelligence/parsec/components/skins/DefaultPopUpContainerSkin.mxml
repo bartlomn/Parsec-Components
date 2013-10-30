@@ -23,6 +23,7 @@
          import com.webintelligence.parsec.components.popup.PopUpContainer;
       ]]>
    </fx:Script>
+
    <!-- states -->
    <s:states>
       <s:State name="disabled" />
@@ -54,6 +55,7 @@
             text="{hostComponent.title}"
             fontSize="18"
             width="100%"
+            styleName="progressNotificationTitle"
             />
          <!--CLOSE BUTTON-->
          <controls:InteractiveButton

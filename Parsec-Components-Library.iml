@@ -34,8 +34,11 @@
         </dependencies>
         <compiler-options>
           <map>
+            <entry key="compiler.defaults-css-files" value="$MODULE_DIR$/src/main/flex/defaults.css" />
+            <entry key="compiler.defaults-css-url" value="$MODULE_DIR$/src/main/flex/defaults.css" />
             <entry key="compiler.define" value="CONFIG::dev&#9;true" />
           </map>
+          <option name="filesToIncludeInSWC" value="$MODULE_DIR$/src/main/flex/defaults.css" />
         </compiler-options>
         <packaging-air-desktop />
         <packaging-android />

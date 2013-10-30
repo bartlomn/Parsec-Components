@@ -2,7 +2,6 @@
 @namespace s "library://ns.adobe.com/flex/spark";
 @namespace mx "library://ns.adobe.com/flex/mx";
 @namespace module "com.webintelligence.parsec.components.module.*";
-@namespace popup "com.webintelligence.parsec.components.popup.*";
 @namespace navigation "com.webintelligence.parsec.components.navigation.*";
 
 
@@ -26,23 +25,6 @@ module|ServiceModulesLoader
 module|UIModuleNavigator
 {
    loaderSkinClass:    ClassReference("com.webintelligence.parsec.components.skins.ModuleViewLoaderSkin");
-}
-
-/*
-//--------------------------------------------------------------------------
-//  POP-UP RELATED
-//--------------------------------------------------------------------------
-*/
-popup|PopUpContainer
-{
-   skinClass:           ClassReference("com.webintelligence.parsec.components.skins.DefaultPopUpContainerSkin");
-}
-
-.alertBody
-{
-   fontWeight:         normal;
-   fontSize:           14;
-   color:              #FFFFFF;
 }
 
 /*
