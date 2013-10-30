@@ -1,0 +1,57 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+@namespace module "com.webintelligence.parsec.components.module.*";
+@namespace popup "com.webintelligence.parsec.components.popup.*";
+@namespace navigation "com.webintelligence.parsec.components.navigation.*";
+
+
+/*
+//--------------------------------------------------------------------------
+//
+//  PARSEC FRAMEWORK STYLES
+//
+//--------------------------------------------------------------------------
+*/
+
+/*
+//--------------------------------------------------------------------------
+//  MODULE LOADERS
+//--------------------------------------------------------------------------
+*/
+module|ServiceModulesLoader
+{
+   loaderSkinClass:    ClassReference("com.webintelligence.parsec.components.skins.NonVisualModuleLoaderSkin");
+}
+module|UIModuleNavigator
+{
+   loaderSkinClass:    ClassReference("com.webintelligence.parsec.components.skins.ModuleViewLoaderSkin");
+}
+
+/*
+//--------------------------------------------------------------------------
+//  POP-UP RELATED
+//--------------------------------------------------------------------------
+*/
+popup|PopUpContainer
+{
+   skinClass:           ClassReference("com.webintelligence.parsec.components.skins.DefaultPopUpContainerSkin");
+}
+
+.alertBody
+{
+   fontWeight:         normal;
+   fontSize:           14;
+   color:              #FFFFFF;
+}
+
+/*
+//--------------------------------------------------------------------------
+//  NAVIGATOR
+//--------------------------------------------------------------------------
+*/
+navigation|UINavigator
+{
+   animatorClass:           ClassReference("com.webintelligence.parsec.components.navigation.animator.CutoffAnimator");
+}
+

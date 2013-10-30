@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flex-config xmlns="http://www.adobe.com/2006/flex-config">
+	<compiler>
+		<accessible>false</accessible>
+		<actionscript-file-encoding>UTF-8</actionscript-file-encoding>
+		<allow-source-path-overlap>false</allow-source-path-overlap>
+		<as3>true</as3>
+		<debug>true</debug>
+		<es>false</es>
+		<extensions />
+		<external-library-path>
+			<path-element>/Users/bnowak/.m2/repository/com/adobe/flex/framework/playerglobal/4.6.b.23201/11.1/playerglobal.swc</path-element>
+		</external-library-path>
+		<fonts>
+			<advanced-anti-aliasing>true</advanced-anti-aliasing>
+			<languages />
+			<local-fonts-snapshot>/Users/bnowak/Documents/Projects/Webintelligence/Workareas/Parsec/parsec-components/target/classes/fonts.ser</local-fonts-snapshot>
+			<managers>
+				<manager-class>flash.fonts.JREFontManager</manager-class>
+				<manager-class>flash.fonts.BatikFontManager</manager-class>
+				<manager-class>flash.fonts.AFEFontManager</manager-class>
+				<manager-class>flash.fonts.CFFFontManager</manager-class>
+			</managers>
+			<max-cached-fonts>20</max-cached-fonts>
+			<max-glyphs-per-face>1000</max-glyphs-per-face>
+		</fonts>
+		<headless-server>false</headless-server>
+		<keep-all-type-selectors>false</keep-all-type-selectors>
+		<keep-generated-actionscript>false</keep-generated-actionscript>
+		<library-path>
+			<path-element>/Users/bnowak/.m2/repository/com/adobe/flex/framework/advancedgrids/4.6.b.23201/advancedgrids-4.6.b.23201.swc</path-element>
+			<path-element>/Users/bnowak/.m2/repository/com/adobe/flex/framework/authoringsupport/4.6.b.23201/authoringsupport-4.6.b.23201.swc</path-element>
+			<path-element>/Users/bnowak/.m2/repository/com/adobe/flex/framework/charts/4.6.b.23201/charts-4.6.b.23201.swc</path-element>
+			<path-element>/Users/bnowak/.m2/repository/com/adobe/flex/framework/core/4.6.b.23201/core-4.6.b.23201.swc</path-element>
+			<path-element>/Users/bnowak/.m2/repository/com/adobe/flex/framework/flash-integration/4.6.b.23201/flash-integration-4.6.b.23201.swc</path-element>
+			<path-element>/Users/bnowak/.m2/repository/com/adobe/flex/framework/framework/4.6.b.23201/framework-4.6.b.23201.swc</path-element>
+			<path-element>/Users/bnowak/.m2/repository/com/adobe/flex/framework/mx/4.6.b.23201/mx-4.6.b.23201.swc</path-element>
+			<path-element>/Users/bnowak/.m2/repository/com/adobe/flex/framework/osmf/4.6.b.23201/osmf-4.6.b.23201.swc</path-element>
+			<path-element>/Users/bnowak/.m2/repository/com/adobe/flex/framework/rpc/4.6.b.23201/rpc-4.6.b.23201.swc</path-element>
+			<path-element>/Users/bnowak/.m2/repository/com/adobe/flex/framework/spark/4.6.b.23201/spark-4.6.b.23201.swc</path-element>
+			<path-element>/Users/bnowak/.m2/repository/com/adobe/flex/framework/sparkskins/4.6.b.23201/sparkskins-4.6.b.23201.swc</path-element>
+			<path-element>/Users/bnowak/.m2/repository/com/adobe/flex/framework/spark_dmv/4.6.b.23201/spark_dmv-4.6.b.23201.swc</path-element>
+			<path-element>/Users/bnowak/.m2/repository/com/adobe/flex/framework/textLayout/4.6.b.23201/textLayout-4.6.b.23201.swc</path-element>
+			<path-element>/Users/bnowak/.m2/repository/org/spicefactory/spicelib/spicelib-flex/2.4.0/spicelib-flex-2.4.0.swc</path-element>
+			<path-element>/Users/bnowak/.m2/repository/org/spicefactory/spicelib/parsley-flex/2.4.1/parsley-flex-2.4.1.swc</path-element>
+			<path-element>/Users/bnowak/.m2/repository/com/adobe/cairngorm/module/0.17/module-0.17.swc</path-element>
+			<path-element>/Users/bnowak/.m2/repository/com/adobe/cairngorm/popup/0.17/popup-0.17.swc</path-element>
+			<path-element>/Users/bnowak/.m2/repository/com/greensock/tweenmax/11.698/tweenmax-11.698.swc</path-element>
+			<path-element>/Users/bnowak/.m2/repository/com/adobe/corelib/corelib/0.93/corelib-0.93.swc</path-element>
+			<path-element>/Users/bnowak/.m2/repository/com/webintelligence/parsec/parsec-api/1.0-SNAPSHOT/parsec-api-1.0-SNAPSHOT.swc</path-element>
+		</library-path>
+		<mobile>false</mobile>
+		<mxml />
+		<namespaces>
+			<namespace>
+				<uri>http://ns.adobe.com/mxml/2009</uri>
+				<manifest>/Users/bnowak/Documents/Projects/Webintelligence/Workareas/Parsec/parsec-components/target/classes/config-4.6.b.23201/mxml-2009-manifest.xml</manifest>
+			</namespace>
+			<namespace>
+				<uri>library://ns.adobe.com/flex/spark</uri>
+				<manifest>/Users/bnowak/Documents/Projects/Webintelligence/Workareas/Parsec/parsec-components/target/classes/config-4.6.b.23201/spark-manifest.xml</manifest>
+			</namespace>
+			<namespace>
+				<uri>library://ns.adobe.com/flex/mx</uri>
+				<manifest>/Users/bnowak/Documents/Projects/Webintelligence/Workareas/Parsec/parsec-components/target/classes/config-4.6.b.23201/mx-manifest.xml</manifest>
+			</namespace>
+			<namespace>
+				<uri>http://www.adobe.com/2006/mxml</uri>
+				<manifest>/Users/bnowak/Documents/Projects/Webintelligence/Workareas/Parsec/parsec-components/target/classes/config-4.6.b.23201/mxml-manifest.xml</manifest>
+			</namespace>
+		</namespaces>
+		<omit-trace-statements>true</omit-trace-statements>
+		<optimize>true</optimize>
+		<show-actionscript-warnings>true</show-actionscript-warnings>
+		<show-binding-warnings>true</show-binding-warnings>
+		<show-shadowed-device-font-warnings>true</show-shadowed-device-font-warnings>
+		<source-path>
+			<path-element>/Users/bnowak/Documents/Projects/Webintelligence/Workareas/Parsec/parsec-components/src/main/flex</path-element>
+			<path-element>/Users/bnowak/Documents/Projects/Webintelligence/Workareas/Parsec/parsec-components/src/main/resources</path-element>
+		</source-path>
+		<strict>true</strict>
+		<theme>
+			<filename>/Users/bnowak/Documents/Projects/Webintelligence/Workareas/Parsec/parsec-components/target/classes/configs/themes/Spark/spark.css</filename>
+		</theme>
+		<use-resource-bundle-metadata>true</use-resource-bundle-metadata>
+		<verbose-stacktraces>false</verbose-stacktraces>
+		<locale />
+	</compiler>
+	<compute-digest>true</compute-digest>
+	<debug-password />
+	<default-background-color>8821927</default-background-color>
+	<default-frame-rate>24</default-frame-rate>
+	<default-script-limits>
+		<max-recursion-depth>1000</max-recursion-depth>
+		<max-execution-time>60</max-execution-time>
+	</default-script-limits>
+	<default-size>
+		<width>500</width>
+		<height>375</height>
+	</default-size>
+	<frames />
+	<framework>halo</framework>
+	<metadata>
+		<date>Sat Dec 08 15:47:06 GMT 2012</date>
+		<localized-title>
+			<title>parsec-components</title>
+			<lang>x-default</lang>
+		</localized-title>
+	</metadata>
+	<runtime-shared-library-settings />
+	<static-link-runtime-shared-libraries>false</static-link-runtime-shared-libraries>
+	<swf-version>14</swf-version>
+	<target-player>11.1.0</target-player>
+	<use-network>true</use-network>
+	<verify-digests>true</verify-digests>
+	<output>/Users/bnowak/Documents/Projects/Webintelligence/Workareas/Parsec/parsec-components/target/parsec-components-1.0-SNAPSHOT.swc</output>
+	<include-sources>
+		<path-element>/Users/bnowak/Documents/Projects/Webintelligence/Workareas/Parsec/parsec-components/src/main/flex</path-element>
+	</include-sources>
+	<include-file>
+		<name>img/close_button.gif</name>
+		<path>/Users/bnowak/Documents/Projects/Webintelligence/Workareas/Parsec/parsec-components/src/main/resources/img/close_button.gif</path>
+	</include-file>
+</flex-config>
+
