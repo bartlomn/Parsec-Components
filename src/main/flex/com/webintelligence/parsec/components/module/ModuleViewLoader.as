@@ -315,7 +315,7 @@ public class ModuleViewLoader extends com.adobe.cairngorm.module.ModuleViewLoade
     */
    private function uncaughtErrorHandler( event:UncaughtErrorEvent ):void
    {
-      if ( config::DEV )
+      if ( CONFIG::dev )
          event.preventDefault();
       if ( _dispatcher != null )
       {
