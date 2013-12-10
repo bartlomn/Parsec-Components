@@ -64,8 +64,6 @@
     <orderEntry type="module" module-name="Parsec-API-Library" exported="" />
     <orderEntry type="module" module-name="Parsec-Util-Library" exported="" />
     <orderEntry type="module" module-name="Legacy-Spicelib-Tasks-Library" exported="" />
-    <orderEntry type="module" module-name="AS3-Corelib-Library" exported="" />
-    <orderEntry type="module" module-name="TweenMax-AS3-Library" exported="" />
     <orderEntry type="module" module-name="Cairngorm-Popup-Library" exported="" />
     <orderEntry type="module" module-name="Cairngorm-Module-Library" exported="" />
   </component>
