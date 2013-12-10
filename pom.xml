@@ -95,6 +95,7 @@
 
    <build>
       <sourceDirectory>src/main/flex</sourceDirectory>
+      <testSourceDirectory>src/test/flex</testSourceDirectory>
       <plugins>
          <plugin>
             <groupId>net.flexmojos.oss</groupId>
@@ -103,13 +104,20 @@
             <extensions>true</extensions>
             <configuration>
                <debug>true</debug>
+               <skipTest>true</skipTest>
                <showWarnings>false</showWarnings>
                <includeSources>
-                  <includeSource>src/main/resources</includeSource>
+                  <includeSource>src/main/assets</includeSource>
                </includeSources>
                <defaultsCssFiles>
                   <defaultsCssFile>src/main/flex/defaults.css</defaultsCssFile>
                </defaultsCssFiles>
+               <defines>
+                  <property>
+                     <name>CONFIG::dev</name>
+                     <value>true</value>
+                  </property>
+               </defines>
             </configuration>
             <dependencies>
                <dependency>
