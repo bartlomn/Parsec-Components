@@ -23,7 +23,7 @@ final public /* abstract */ class ParsecEmbeds
    [Bindable]
    
    /**
-    *  Enumarets embedded asset
+    *  Enumerates embedded asset
     */
    public static var CLOSE_BUTTON:Class;
    
