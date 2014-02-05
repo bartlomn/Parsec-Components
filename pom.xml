@@ -98,11 +98,18 @@
             <extensions>true</extensions>
             <configuration>
                <debug>true</debug>
-               <skipTest>true</skipTest>
-               <showWarnings>false</showWarnings>
+               <compilerWarnings>
+                  <warn-no-constructor>false</warn-no-constructor>
+               </compilerWarnings>
                <defaultsCssFiles>
-                  <defaultsCssFile>src/main/flex/defaults.css</defaultsCssFile>
+                  <defaultsCssFile>${basedir}/src/main/flex/defaults.css</defaultsCssFile>
                </defaultsCssFiles>
+               <includeStylesheets>
+                  <stylesheet>
+                     <name>defaults.css</name>
+                     <path>${basedir}/src/main/flex/defaults.css</path>
+                  </stylesheet>
+               </includeStylesheets>
                <defines>
                   <property>
                      <name>CONFIG::dev</name>
