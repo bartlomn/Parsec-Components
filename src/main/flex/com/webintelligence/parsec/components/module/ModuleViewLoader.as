@@ -326,7 +326,7 @@ public class ModuleViewLoader extends com.adobe.cairngorm.module.ModuleViewLoade
             "UncaughtErrorEvent:\n" + event.toString(),
             event.error ) );
       }
-      LOG.fatal( "UncaughtErrorEvent caught {0}", event.toString() );
+      LOG.fatal( "UncaughtErrorEvent caught {0}", event.target.toString() );
    }
 }
 }
