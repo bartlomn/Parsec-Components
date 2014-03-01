@@ -1,8 +1,5 @@
 package com.webintelligence.parsec.components.transitions
 {
-import com.greensock.TweenMax;
-import com.greensock.easing.Quad;
-
 import flash.display.BitmapData;
 import flash.display.DisplayObject;
 import flash.events.Event;
@@ -197,38 +194,38 @@ public class Box3dTransition
    
    private function flipLeft():void 
    {
-      TweenMax.to(_box, _time, {
-         rotationY:90, 
-         ease:Quad.easeOut, 
-         onUpdate:checkAngle, 
-         onComplete:transitionDone});
+//      TweenMax.to(_box, _time, {
+//         rotationY:90,
+//         ease:Quad.easeOut,
+//         onUpdate:checkAngle,
+//         onComplete:transitionDone});
    }
    
    private function flipRight():void 
    {
-      TweenMax.to(_box, _time, {
-         rotationY:-90, 
-         ease:Quad.easeOut, 
-         onUpdate:checkAngle, 
-         onComplete:transitionDone});
+//      TweenMax.to(_box, _time, {
+//         rotationY:-90,
+//         ease:Quad.easeOut,
+//         onUpdate:checkAngle,
+//         onComplete:transitionDone});
    }
    
    private function flipUp():void 
    {
-      TweenMax.to(_box, _time, {
-         rotationX:-90, 
-         ease:Quad.easeOut, 
-         onUpdate:checkAngle, 
-         onComplete:transitionDone});
+//      TweenMax.to(_box, _time, {
+//         rotationX:-90,
+//         ease:Quad.easeOut,
+//         onUpdate:checkAngle,
+//         onComplete:transitionDone});
    }
    
    private function flipDown():void 
    {
-      TweenMax.to(_box, _time, {
-         rotationX:90, 
-         ease:Quad.easeOut, 
-         onUpdate:checkAngle, 
-         onComplete:transitionDone});
+//      TweenMax.to(_box, _time, {
+//         rotationX:90,
+//         ease:Quad.easeOut,
+//         onUpdate:checkAngle,
+//         onComplete:transitionDone});
    }
    
    private function checkAngle():void 
