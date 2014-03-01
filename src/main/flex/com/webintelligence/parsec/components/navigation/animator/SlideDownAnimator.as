@@ -10,16 +10,16 @@ package com.webintelligence.parsec.components.navigation.animator
 {
 import spark.effects.WipeDirection;
 
-public class SlideLeftAnimator extends SlideAnimatorBase
+public class SlideDownAnimator extends SlideAnimatorBase
 {
 
    /**
     *  Constructor
     */
-   public function SlideLeftAnimator()
+   public function SlideDownAnimator()
    {
       super();
-      _direction = WipeDirection.LEFT;
+      _direction = WipeDirection.DOWN;
    }
 }
 }

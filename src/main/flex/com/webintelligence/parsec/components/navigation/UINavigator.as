@@ -43,7 +43,7 @@ import spark.primitives.BitmapImage;
 /**
  *  defines a default UINavigator class
  */
-[Style(name="animatorClass", type="Class")]
+[Style(name="animatorClass", type="Class", inherit="true")]
 
 public class UINavigator 
    extends DestinationsAwareContainer
@@ -142,7 +142,7 @@ public class UINavigator
     *  @private
     *  flag to tell we have a transition in progress
     */
-   private var _transitionInProgress:Boolean;
+   protected var _transitionInProgress:Boolean;
    
    /**
     *  @private
@@ -180,7 +180,7 @@ public class UINavigator
    }
    
    //--------------------------------------
-   //  layout
+   //  currentDestination
    //--------------------------------------
    /**
     *  @inheritDoc
@@ -424,23 +424,32 @@ public class UINavigator
             currentDestination :
             _lastPrimaryDestination));
       }
-      _animationCanvas1.source = _currentScreen ? 
-         _currentScreen.getScreenshot() : 
-         new BitmapData(width, height, true, 0x00FFFFFF);
-      _animationCanvas2.source = target ? 
-         target.getScreenshot() :
-         new BitmapData(width, height, true, 0x00FFFFFF);
+
+      if( _currentScreen )
+      {
+         _animationCanvas1.source = _currentScreen.getScreenshot();
+         _currentScreen.visible = false;
+      }
+      else
+      {
+         _animationCanvas1.source = new BitmapData(width, height, true, 0x00FFFFFF);
+      }
+
+      if( target )
+         _animationCanvas2.source = target.getScreenshot();
+      else
+         _animationCanvas2.source = new BitmapData(width, height, true, 0x00FFFFFF);
+
       _animationLayer.visible = _animationLayer.includeInLayout = true;
       _transitionInProgress = true;
+
       animator.animate(
          _animationCanvas1, 
          _animationCanvas2, 
          (_currentScreen ? 
-            DisplayObject(_currentScreen).getRect(_animationLayer) :
-            null),
+            DisplayObject(_currentScreen).getRect(_animationLayer) : null),
          (target ? 
-            DisplayObject(target).getRect(_animationLayer) :
-            null),
+            DisplayObject(target).getRect(_animationLayer) : null),
          animationCallback);
    }
    

@@ -115,12 +115,6 @@
          <version>1.0</version>
          <type>swc</type>
       </dependency>
-      <dependency>
-         <groupId>com.greensock.tweenmax</groupId>
-         <artifactId>tweenmax-as3-library</artifactId>
-         <version>12.1.0</version>
-         <type>swc</type>
-      </dependency>
    </dependencies>
 
    <build>

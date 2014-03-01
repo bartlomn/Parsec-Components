@@ -2,12 +2,12 @@ package com.webintelligence.parsec.components.navigation.animator
 {
 import flash.geom.Rectangle;
 
+import mx.events.EffectEvent;
+
+import spark.effects.Animate;
+import spark.effects.animation.MotionPath;
+import spark.effects.animation.SimpleMotionPath;
 import spark.primitives.BitmapImage;
-
-import com.greensock.TweenMax;
-import com.greensock.easing.Quad;
-
-
 
 /***************************************************************************
  * 
@@ -51,11 +51,26 @@ public class FadeAnimator
       callback:Function):void
    {
       super.animate(from, to, sourceRect, targetRect, callback);
-      
+
+
+      var effectEndHandler:Function = function( event:EffectEvent ):void
+      {
+         event.target.removeEventListener( EffectEvent.EFFECT_END, effectEndHandler );
+         callback.call();
+      }
+
       from.alpha = 1;
-      TweenMax.to(from, DURATION / 1000, {alpha:0, ease:Quad.easeOut});
+      var fadeOut:Animate = new Animate( from );
+      fadeOut.duration = DURATION;
+      fadeOut.motionPaths = new <MotionPath>[ new SimpleMotionPath( "alpha", 1, 0 )];
+      fadeOut.play();
+      
       to.alpha = 0;
-      TweenMax.to(to, DURATION / 1000, {alpha:1, ease:Quad.easeOut, onComplete:callback});
+      var fadeIn:Animate = new Animate( to );
+      fadeIn.duration = DURATION;
+      fadeIn.addEventListener( EffectEvent.EFFECT_END, effectEndHandler );
+      fadeIn.motionPaths = new <MotionPath>[ new SimpleMotionPath( "alpha", 0, 1 )];
+      fadeIn.play();
    }
    
    

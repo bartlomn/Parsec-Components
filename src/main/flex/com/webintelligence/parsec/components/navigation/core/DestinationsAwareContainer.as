@@ -484,7 +484,11 @@ public class DestinationsAwareContainer extends ParsleyAwareContainer
     */
    private function configureDescriptors():void
    {
-      FastInject.view( this ).property( "destinationDescriptors" ).objectId( _descriptorListId ).execute();
+      FastInject
+         .view( this )
+         .property( "destinationDescriptors" )
+         .objectId( _descriptorListId )
+         .execute();
    }
 
    //--------------------------------------
