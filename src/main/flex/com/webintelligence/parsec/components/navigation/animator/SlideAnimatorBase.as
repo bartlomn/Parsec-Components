@@ -68,6 +68,8 @@ public class SlideAnimatorBase
       var effectEndHandler:Function = function( event:EffectEvent ):void
       {
          event.target.removeEventListener( EffectEvent.EFFECT_END, effectEndHandler );
+         from[ property ] = 0;
+         to[ property ] = 0;
          callback.call();
       }
 
@@ -124,7 +126,7 @@ public class SlideAnimatorBase
             return image.height;
             break;
          case WipeDirection.UP:
-            return image.height;
+            return -image.height;
             break;
       }
       throw new Error( "Abstract class, please use concrete implementations");
