@@ -5,13 +5,11 @@ import com.bnowak.parsec.util.integration.parsley.MessageDispatcherProvider;
 
 import flash.display.DisplayObject;
 
-import spark.components.supportClasses.SkinnableComponent;
-
 import org.spicefactory.parsley.core.context.Context;
 import org.spicefactory.parsley.core.messaging.impl.MessageDispatcher;
 import org.spicefactory.parsley.core.view.util.StageEventFilter;
 
-
+import spark.components.supportClasses.SkinnableComponent;
 
 /***************************************************************************
  *
