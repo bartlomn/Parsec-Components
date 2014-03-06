@@ -7,7 +7,7 @@ import flash.display.BitmapData;
 import mx.events.FlexEvent;
 
 import spark.components.Group;
-
+import spark.components.SkinnableContainer;
 
 /***************************************************************************
  *
@@ -27,7 +27,7 @@ import spark.components.Group;
 [Event( name = "screenComplete",
    type = "com.webintelligence.parsec.components.navigation.event.UINavigatorScreenEvent" )]
 
-public class AbstractUINavigatorScreen extends Group implements IUINavigatorScreen
+public class AbstractUINavigatorScreen extends SkinnableContainer implements IUINavigatorScreen
 {
 
    //--------------------------------------------------------------------------
