@@ -178,6 +178,7 @@ public class ModuleViewBase extends Module implements IParsleyModule
     */
    protected function creationCompleteHandler( event:FlexEvent ):void
    {
+      LOG.debug( "Module creation complete" );
       removeEventListener( FlexEvent.CREATION_COMPLETE, creationCompleteHandler );
       dispatchEvent( new UINavigatorScreenEvent( UINavigatorScreenEvent.SCREEN_COMPLETE ) );
    }
