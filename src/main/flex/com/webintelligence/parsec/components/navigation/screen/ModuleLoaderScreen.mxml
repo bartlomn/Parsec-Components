@@ -1,45 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<screen:AbstractUINavigatorScreen 
-   xmlns:fx="http://ns.adobe.com/mxml/2009"
-   xmlns:module="com.webintelligence.parsec.components.module.*"
-   xmlns:s="library://ns.adobe.com/flex/spark"
-   xmlns:screen="com.webintelligence.parsec.components.navigation.screen.*"
-   xmlns:view="org.spicefactory.parsley.flex.tag.view.*"
-   
-   height="100%"
-   width="100%"
-   >
+<screen:AbstractUINavigatorScreen
+    xmlns:fx="http://ns.adobe.com/mxml/2009"
+    xmlns:module="com.webintelligence.parsec.components.module.*"
+    xmlns:screen="com.webintelligence.parsec.components.navigation.screen.*"
+    xmlns:view="org.spicefactory.parsley.flex.tag.view.*"
+
+    height="100%"
+    width="100%"
+    >
 
    <fx:Script>
       <![CDATA[
+      import com.adobe.cairngorm.module.IModuleManager;
+      import com.webintelligence.parsec.components.module.BasicLoadPolicy;
+      import com.webintelligence.parsec.components.navigation.event.UINavigatorScreenEvent;
 
-         import com.adobe.cairngorm.module.BasicLoadPolicy;
-         import com.adobe.cairngorm.module.IModuleManager;
-         import com.webintelligence.parsec.components.navigation.event.UINavigatorScreenEvent;
+      import mx.events.FlexEvent;
 
-         import mx.events.FlexEvent;
+      import org.spicefactory.parsley.core.context.Context;
 
-         [Bindable]
-         public var moduleId:String;
+      [Bindable]
+      public var moduleId : String;
 
-         [Bindable]
-         public var moduleManager:IModuleManager;
+      [Bindable]
+      public var moduleManager : IModuleManager;
 
-         override protected function creationCompleteHandler( event:FlexEvent ):void
-         {
-            // we don't want to disptach complete event yet - wait for the module to load
-            null;
-         }
+      override protected function creationCompleteHandler( event : FlexEvent ) : void
+      {
+         // we don't want to disptach complete event yet - wait for the module to load
+         null;
+      }
 
-         protected function screenCompleteHandler( event:UINavigatorScreenEvent ):void
-         {
-            //  prevent propagation from child scope and redispatch as our own
-            event.stopImmediatePropagation();
-            event.stopPropagation();
+      protected function screenCompleteHandler( event : UINavigatorScreenEvent ) : void
+      {
+         //  prevent propagation from child scope and redispatch as our own
+         event.stopImmediatePropagation();
+         event.stopPropagation();
 
-            this.dispatchEvent( new UINavigatorScreenEvent( UINavigatorScreenEvent.SCREEN_COMPLETE ) );
-         }
-
+         this.dispatchEvent( new UINavigatorScreenEvent( UINavigatorScreenEvent.SCREEN_COMPLETE ) );
+      }
       ]]>
    </fx:Script>
 

@@ -35,7 +35,7 @@ public class LogAwareEventDispatcher
    {
       try
       {
-         _log  = LogContext.getLogger( ClassInfo.forInstance( this ).simpleName );
+         _log  = LogContext.getLogger( ClassInfo.forInstance( this ).name );
       } catch( e:Error )
       {
          _LOG.error( "Logger instance creation failed for {0}, error: {1}", this, e.message );

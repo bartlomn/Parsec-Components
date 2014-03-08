@@ -67,6 +67,11 @@ public class ExplicitLoadPolicy implements ILoadPolicy
    /**
     *  @private
     */
+   private var _lastLog:int;
+
+   /**
+    *  @private
+    */
    protected var _context:Context;
 
    /**
@@ -221,8 +226,11 @@ public class ExplicitLoadPolicy implements ILoadPolicy
    private function loader_progressHandler( event:ModuleEvent ):void
    {
       var p:int = ( event.bytesLoaded / event.bytesTotal ) * 100;
-      if ( p % 10 == 0 )
+      if ( p % 10 == 0 && p != _lastLog )
+      {
          LOG.debug( "Progress loading {0}: {1}% complete", loader.moduleId, p );
+         _lastLog = p;
+      }
       _dispatcher.dispatchMessage( new LoadModuleProgressMsg( loader.moduleId, event.bytesLoaded, event.bytesTotal ) );
    }
 
