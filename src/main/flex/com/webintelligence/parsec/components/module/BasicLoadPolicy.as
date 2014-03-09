@@ -11,6 +11,7 @@ import com.adobe.cairngorm.module.BasicLoadPolicy;
 import com.adobe.cairngorm.module.IViewLoader;
 import com.bnowak.parsec.util.integration.parsley.ContextLookupHelper;
 import com.bnowak.parsec.util.integration.parsley.MessageDispatcherProvider;
+import com.webintelligence.parsec.core.message.lifecycle.NotifyCriticalErrorMsg;
 import com.webintelligence.parsec.core.message.module.LoadModuleErrorMsg;
 import com.webintelligence.parsec.core.message.module.LoadModuleProgressMsg;
 import com.webintelligence.parsec.core.message.module.LoadModuleReadyMsg;
@@ -173,6 +174,8 @@ public class BasicLoadPolicy extends com.adobe.cairngorm.module.BasicLoadPolicy
    {
       LOG.error( "Module {0} LOAD ERROR", loader.moduleId );
       _dispatcher.dispatchMessage( new LoadModuleErrorMsg( loader.moduleId, event.toString() ) );
+      //TODO: Dirty fix, handling should go through above
+      _dispatcher.dispatchMessage( new NotifyCriticalErrorMsg( loader, event.toString() ));
    }
 }
 }
