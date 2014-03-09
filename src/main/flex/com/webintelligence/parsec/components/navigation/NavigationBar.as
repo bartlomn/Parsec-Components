@@ -34,8 +34,13 @@ import com.webintelligence.parsec.core.navigation.enum.DestinationScope;
 public class NavigationBar 
     extends DestinationsAwareContainer
 {
-    
-    //--------------------------------------------------------------------------
+
+   /**
+    *  @private
+    */
+   protected var _useBundle:String;
+
+   //--------------------------------------------------------------------------
     //
     //  Constructor
     //
@@ -82,6 +87,8 @@ public class NavigationBar
      */
     override public function set currentDestination(value:Destination):void
     {
+       if( !destinations )
+         return;
         if(scope && scope != value.scope)
             return;
         var current:Destination = super.currentDestination;
@@ -90,11 +97,9 @@ public class NavigationBar
             return;
 
         var parent:Destination = findCommonParent(value);
-        var hasDestination:Boolean = destinations.contains(value);
+        var hasDestination:Boolean = destinations!=null && destinations.contains(value);
         if (!parent && hasDestination)
-        {
             _defaultDestination = value;
-        }
         super.currentDestination = hasDestination ? value : parent;
     }
 
@@ -115,5 +120,14 @@ public class NavigationBar
         if(destination && destination != currentDestination)
             dispatchMessage(NavigationRequest.createFor(destination));
     }
+
+   /**
+    *  @private
+    */
+   protected function destinationToLabelFunction( item : Destination ) : String
+   {
+      var result:String = _useBundle ? resourceManager.getString( _useBundle, item.toString() ) : item.toString();
+      return  result || item.toString();
+   }
 }
 }
