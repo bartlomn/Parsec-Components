@@ -22,7 +22,7 @@ public class UISlider extends UINavigator
    /**
     *  @private
     */
-   public var direction:String = SliderDirection.HORIZONTAL;
+   public var slideDirection:String = SliderDirection.HORIZONTAL;
 
    /**
     *  @private
@@ -35,9 +35,9 @@ public class UISlider extends UINavigator
          var currentIdx:int = destinations.getItemIndex( currentDestination );
          var nextIdx:int = destinations.getItemIndex( value );
          if( nextIdx < currentIdx )
-            sliderClass = direction == SliderDirection.HORIZONTAL ? SlideRightAnimator : SlideUpAnimator;
+            sliderClass = slideDirection == SliderDirection.HORIZONTAL ? SlideRightAnimator : SlideUpAnimator;
          else
-            sliderClass = direction == SliderDirection.HORIZONTAL ? SlideLeftAnimator : SlideDownAnimator;
+            sliderClass = slideDirection == SliderDirection.HORIZONTAL ? SlideLeftAnimator : SlideDownAnimator;
 
          animator = new sliderClass() as IUIAnimator;
       }
