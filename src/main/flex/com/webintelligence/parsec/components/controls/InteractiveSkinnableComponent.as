@@ -13,17 +13,23 @@ import spark.components.supportClasses.SkinnableComponent;
 
 [SkinState("up")]
 [SkinState("over")]
-[SkinState("down")]
-
-// todo: add state enum
-
 public class InteractiveSkinnableComponent extends SkinnableComponent
 {
 
    /**
     *  @private
     */
-   protected var _currentSkinstate:String = "up";
+   protected static const _STATE_UP:String = "up";
+
+   /**
+    *  @private
+    */
+   protected static const _STATE_OVER:String = "over";
+
+   /**
+    *  @private
+    */
+   protected var _currentSkinstate:String = _STATE_UP;
 
    /**
     *  Constructor
@@ -35,8 +41,6 @@ public class InteractiveSkinnableComponent extends SkinnableComponent
       buttonMode = true;
       addEventListener( MouseEvent.ROLL_OVER, rollOverHandler );
       addEventListener( MouseEvent.ROLL_OUT, rollOutHandler );
-      addEventListener( MouseEvent.MOUSE_DOWN, mouseDownHandler );
-      addEventListener( MouseEvent.MOUSE_UP, mouseUpHandler );
    }
    /**
     *  @inheritDoc
@@ -49,38 +53,19 @@ public class InteractiveSkinnableComponent extends SkinnableComponent
    /**
     *  @private
     */
-   private function rollOverHandler( event:MouseEvent ):void
+   protected function rollOverHandler( event:MouseEvent ):void
    {
-      _currentSkinstate = "over";
+      _currentSkinstate = _STATE_OVER;
       invalidateSkinState();
    }
 
    /**
     *  @private
     */
-   private function rollOutHandler( event:MouseEvent ):void
+   protected function rollOutHandler( event:MouseEvent ):void
    {
-      _currentSkinstate = "up";
+      _currentSkinstate = _STATE_UP;
       invalidateSkinState();
    }
-
-   /**
-    *  @private
-    */
-   private function mouseDownHandler( event:MouseEvent ):void
-   {
-      _currentSkinstate = "down";
-      invalidateSkinState();
-   }
-
-   /**
-    *  @private
-    */
-   private function mouseUpHandler( event:MouseEvent ):void
-   {
-      _currentSkinstate = "over";
-      invalidateSkinState();
-   }
-
 }
 }
