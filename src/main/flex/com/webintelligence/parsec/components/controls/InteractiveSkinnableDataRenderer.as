@@ -53,12 +53,12 @@ public class InteractiveSkinnableDataRenderer
     */
    override protected function commitProperties():void
    {
-      super.commitProperties();
       if( _dataChanged )
       {
          dispatchEvent( new Event( "dataChanged" ));
          _dataChanged = false;
       }
+      super.commitProperties();
    }
 
    /**
