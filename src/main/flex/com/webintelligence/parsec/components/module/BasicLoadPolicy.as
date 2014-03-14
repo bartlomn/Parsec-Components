@@ -152,7 +152,9 @@ public class BasicLoadPolicy extends com.adobe.cairngorm.module.BasicLoadPolicy
       var p:int = ( event.bytesLoaded / event.bytesTotal ) * 100;
       if ( p % 10 == 0 && p != _lastProgress )
       {
-         LOG.debug( "Progress loading {0}: {1}% complete", loader.moduleId, p );
+         var tk:int = Math.floor( ( event.bytesTotal + 1023 ) / 1024 );
+         var lk:int = Math.floor( ( event.bytesLoaded + 1023 ) / 1024 );
+         LOG.debug( "Progress loading {0}: {2}kB/{3}kB ({1}%) complete", loader.moduleId, p, lk, tk );
          _lastProgress = p;
       }
       _dispatcher.dispatchMessage( new LoadModuleProgressMsg( loader.moduleId, event.bytesLoaded, event.bytesTotal ) );
