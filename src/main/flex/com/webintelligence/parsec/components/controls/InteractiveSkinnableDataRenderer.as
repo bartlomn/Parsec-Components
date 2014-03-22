@@ -55,6 +55,7 @@ public class InteractiveSkinnableDataRenderer
    {
       if( _dataChanged )
       {
+         dataChangedHandler();
          dispatchEvent( new Event( "dataChanged" ));
          _dataChanged = false;
       }
@@ -67,6 +68,14 @@ public class InteractiveSkinnableDataRenderer
    public function InteractiveSkinnableDataRenderer()
    {
       super();
+   }
+
+   /**
+    *  @private
+    */
+   protected function dataChangedHandler():void
+   {
+      // abstract method
    }
 }
 }
