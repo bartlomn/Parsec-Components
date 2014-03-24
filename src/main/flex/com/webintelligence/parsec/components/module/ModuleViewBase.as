@@ -33,7 +33,7 @@ public class ModuleViewBase extends Module implements IParsleyModule
    /**
     *  @private
     */
-   private static const LOG:Logger = LogContext.getLogger( ModuleViewBase );
+   protected static const LOG:Logger = LogContext.getLogger( ModuleViewBase );
 
    //--------------------------------------------------------------------------
    //
@@ -70,12 +70,15 @@ public class ModuleViewBase extends Module implements IParsleyModule
    //  bootstrapSequenceTask
    //--------------------------------------
 
+   // todo: deprecated, remove
+
    /**
     *  @private
     *  Storage for the bootstrapSequenceTask property.
     */
    private var _bootstrapSequenceTask:Object;
 
+   [Deprecated]
    /**
     *  Application bootstrap sequence task.
     *  Injected from BootstrapContext.mxml
