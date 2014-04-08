@@ -8,6 +8,7 @@
 package com.webintelligence.parsec.components.navigation.screen.model
 {
 import com.webintelligence.parsec.components.navigation.event.UIScreenModelEvent;
+import com.webintelligence.parsec.components.navigation.screen.factory.AbstractItemRendererFactory;
 
 import mx.collections.ArrayCollection;
 
@@ -16,6 +17,11 @@ import mx.collections.ArrayCollection;
 
 public class AbstractDataProviderModel extends AbstractFocusClientModel
 {
+
+   /**
+    *  @private
+    */
+   public var itemRendererFactory:AbstractItemRendererFactory;
 
    /**
     *  @private

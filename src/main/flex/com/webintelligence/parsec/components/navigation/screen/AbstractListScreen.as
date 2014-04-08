@@ -14,6 +14,11 @@ import spark.components.List;
 public class AbstractListScreen extends AbstractAsyncUIScreen
 {
 
+   /**
+    *  @private
+    */
+   private var _model:AbstractDataProviderModel;
+
    [Bindable][SkinPart(required="true")]
    /**
     *  result list ui
@@ -31,12 +36,15 @@ public class AbstractListScreen extends AbstractAsyncUIScreen
    /**
     *  @inheritDoc
     */
-   override protected function partAdded( partName : String, instance : Object ) : void
+   override protected function modelChangedHandler() : void
    {
-      super.partAdded( partName, instance );
-      if( instance == resultList && model is AbstractDataProviderModel)
+      super.modelChangedHandler();
+      _model = AbstractDataProviderModel( model );
+      if( resultList && _model )
       {
          bindToModelProperty( resultList, "dataProvider", ["dataProvider"]);
+         if( _model.itemRendererFactory )
+            resultList.itemRendererFunction = _model.itemRendererFactory.itemRendererFunction;
       }
    }
 
