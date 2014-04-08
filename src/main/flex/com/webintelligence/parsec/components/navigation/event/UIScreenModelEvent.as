@@ -11,7 +11,7 @@ import flash.events.Event;
  *
  ***************************************************************************/
 
-public class UINavigatorScreenEvent extends Event
+public class UIScreenModelEvent extends Event
 {
 
    //--------------------------------------------------------------------------
@@ -23,17 +23,27 @@ public class UINavigatorScreenEvent extends Event
    /**
     *  enumerates event type
     */
-   public static const SCREEN_COMPLETE:String = "screenComplete";
+   public static const FOCUS_REQUEST:String = "focusRequestReceived"
 
    /**
     *  enumerates event type
     */
-   public static const MODEL_CHANGED:String = "uiModelChanged"
+   public static const DATA_PROVIDER_CHANGED:String = "dataProviderChanged"
 
    /**
     *  enumerates event type
     */
-   public static const LOOKUP_VALUE_CHANGED:String = "lookupValueChanged"
+   public static const LOOKUP_ITEM_CHANGED:String = "lookupItemChanged"
+
+   /**
+    *  enumerates event type
+    */
+   public static const LOOKUP_STATE_CHANGED:String = "lookupStateChanged"
+
+   /**
+    *  enumerates event type
+    */
+   public static const LOOKUP_COLLECTION_CHANGED:String = "lookupCollectionChanged"
 
    //--------------------------------------------------------------------------
    //
@@ -44,7 +54,7 @@ public class UINavigatorScreenEvent extends Event
    /**
     *  Constructor
     */
-   public function UINavigatorScreenEvent( type:String )
+   public function UIScreenModelEvent( type:String )
    {
       super( type, true, false );
    }

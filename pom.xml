@@ -78,6 +78,12 @@
       </dependency>
       <dependency>
          <groupId>com.webintelligence.parsec</groupId>
+         <artifactId>Parsec-Core-Library</artifactId>
+         <version>1.0.0</version>
+         <type>swc</type>
+      </dependency>
+      <dependency>
+         <groupId>com.webintelligence.parsec</groupId>
          <artifactId>Parsec-Util-Library</artifactId>
          <version>1.0.0</version>
          <type>swc</type>

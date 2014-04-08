@@ -7,13 +7,15 @@
 
 package com.webintelligence.parsec.components.controls
 {
-import flash.events.Event;
+import com.webintelligence.parsec.components.controls.events.ParsecRendererEvent;
 
 import mx.core.IDataRenderer;
 
-[Event(name="dataChanged", type="flash.events.Event")]
-public class InteractiveSkinnableDataRenderer
-   extends InteractiveSkinnableComponent
+[Event(name="rendererDataChanged",
+      type="com.webintelligence.parsec.components.controls.events.ParsecRendererEvent")]
+
+public class InteractiveSkinableDataRenderer
+   extends InteractiveSkinnableContainer
    implements IDataRenderer
 {
 
@@ -27,7 +29,7 @@ public class InteractiveSkinnableDataRenderer
     */
    protected var _dataChanged:Boolean;
 
-   [Bindable(event="dataChanged")]
+   [Bindable(event="rendererDataChanged")]
    /**
     *  @private
     */
@@ -56,7 +58,7 @@ public class InteractiveSkinnableDataRenderer
       if( _dataChanged )
       {
          dataChangedHandler();
-         dispatchEvent( new Event( "dataChanged" ));
+         dispatchEvent( ParsecRendererEvent.forDataChange() );
          _dataChanged = false;
       }
       super.commitProperties();
@@ -65,7 +67,7 @@ public class InteractiveSkinnableDataRenderer
    /**
     *  Constructor
     */
-   public function InteractiveSkinnableDataRenderer()
+   public function InteractiveSkinableDataRenderer()
    {
       super();
    }
