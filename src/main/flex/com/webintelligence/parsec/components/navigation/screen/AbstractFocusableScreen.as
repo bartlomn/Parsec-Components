@@ -34,9 +34,9 @@ public class AbstractFocusableScreen extends AbstractModelDrivenScreen
    /**
     *  @private
     */
-   protected function focusRequestHandler( ...triggers ):void
+   protected function focusRequestHandler( event:UIScreenModelEvent ):void
    {
-      log.debug( "Received focus request.");
+      // abstract
    }
 }
 }

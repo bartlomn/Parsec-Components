@@ -10,6 +10,7 @@ package com.webintelligence.parsec.components.navigation.screen
 {
 import com.webintelligence.parsec.components.controls.domain.VirtualColumn;
 import com.webintelligence.parsec.components.navigation.event.UINavigatorScreenEvent;
+import com.webintelligence.parsec.components.navigation.event.UIScreenModelEvent;
 import com.webintelligence.parsec.components.navigation.screen.domain.LookupUiState;
 import com.webintelligence.parsec.components.navigation.screen.factory.VirtualColumnRendererFactory;
 import com.webintelligence.parsec.components.navigation.screen.model.AbstractSearchScreenModel;
@@ -17,10 +18,13 @@ import com.webintelligence.parsec.components.navigation.screen.model.AbstractSea
 import flash.events.Event;
 import flash.events.KeyboardEvent;
 
+import mx.core.FlexGlobals;
+
 import mx.core.UIComponent;
 import mx.events.FlexEvent;
 
 import spark.components.supportClasses.ListBase;
+import spark.components.supportClasses.SkinnableTextBase;
 
 [Event(name="lookupValueChanged",
       type="com.webintelligence.parsec.components.navigation.event.UINavigatorScreenEvent")]
@@ -97,11 +101,21 @@ public class AbstractSearchScreen extends AbstractListScreen
    /**
     *  @inheritDoc
     */
-   override protected function focusRequestHandler( ...triggers ) : void
+   override protected function focusRequestHandler( event:UIScreenModelEvent ) : void
    {
-      super.focusRequestHandler( triggers );
+      super.focusRequestHandler( event );
       if( searchUIComponent )
-         searchUIComponent.setFocus();
+      {
+         var focusSetter:Function = function():void
+         {
+            searchUIComponent.setFocus();
+            if( searchUIComponent is SkinnableTextBase )
+               ( searchUIComponent as SkinnableTextBase ).selectAll();
+         }
+         if( FlexGlobals.topLevelApplication.hasOwnProperty( "setFocus" ))
+            FlexGlobals.topLevelApplication.setFocus();
+         callLater( focusSetter );
+      }
    }
 
    /**
