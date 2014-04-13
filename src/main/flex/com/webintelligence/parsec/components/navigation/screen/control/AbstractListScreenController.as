@@ -34,6 +34,7 @@ public class AbstractListScreenController extends AbstractModelDrivenScreenContr
 
    /**
     *  @private
+    *  // todo: rename into dataProvider for consistency
     */
    public function get results() : ArrayCollection
    {
