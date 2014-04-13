@@ -45,6 +45,7 @@ public class AbstractDataGridScreen extends AbstractAsyncUIScreen
          if( _model.columnFactory )
             bindToModelProperty( resultGrid, "columns", [ "columnFactory", "columns" ]);
          bindToModelProperty( resultGrid, "dataProvider", [ "dataProvider" ]);
+         bindToModelProperty( resultGrid, "selectedItem", [ "selectedItem" ]);
       }
    }
 

@@ -33,6 +33,11 @@ public class UIScreenModelEvent extends Event
    /**
     *  enumerates event type
     */
+   public static const SELECTED_ITEM_CHANGED:String = "selectedItemChanged";
+
+   /**
+    *  enumerates event type
+    */
    public static const LOOKUP_ITEM_CHANGED:String = "lookupItemChanged";
 
    /**
@@ -44,11 +49,6 @@ public class UIScreenModelEvent extends Event
     *  enumerates event type
     */
    public static const LOOKUP_COLLECTION_CHANGED:String = "lookupCollectionChanged";
-
-   /**
-    *  enumerates event type
-    */
-   public static const COLUMN_PROVIDER_CHANGED:String = "columnProviderChanged";
 
    //--------------------------------------------------------------------------
    //

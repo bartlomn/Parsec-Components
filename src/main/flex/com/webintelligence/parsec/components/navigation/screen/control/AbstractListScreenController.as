@@ -25,6 +25,43 @@ public class AbstractListScreenController extends AbstractModelDrivenScreenContr
    /**
     *  @private
     */
+   protected var autoSelectFromDataProvider:Boolean;
+
+
+   /**
+    *  @private
+    */
+   private var _selectedItem:Object;
+
+   /**
+    *  @private
+    */
+   private var _selectedItemChanged:Boolean;
+
+   /**
+    *  @private
+    */
+   public function get selectedItem() : Object
+   {
+      return _selectedItem;
+   }
+   /**
+    *  @private
+    */
+   public function set selectedItem( value : Object ) : void
+   {
+      if( value != _selectedItem )
+      {
+         _log.debug( "Setting selected item: {0}", value );
+         _selectedItem = value;
+         _selectedItemChanged = true;
+         invalidateProperties();
+      }
+   }
+
+   /**
+    *  @private
+    */
    private var _results:ArrayCollection;
 
    /**
@@ -82,6 +119,11 @@ public class AbstractListScreenController extends AbstractModelDrivenScreenContr
          dataProviderChangedHandler();
          _resultsChanged = false;
       }
+      if( _selectedItemChanged )
+      {
+         selectedItemChangedHandler();
+         _selectedItemChanged = false;
+      }
    }
 
    [MessageHandler]
@@ -101,11 +143,32 @@ public class AbstractListScreenController extends AbstractModelDrivenScreenContr
    /**
     *  @private
     */
+   protected function selectedItemChangedHandler():void
+   {
+      _log.debug( "Selected item changed: {0}", selectedItem );
+      if( _model )
+         _model.selectedItem = selectedItem;
+   }
+
+   /**
+    *  @private
+    */
    protected function dataProviderChangedHandler():void
    {
       _log.debug( "Data provider changed.");
+
       if( _model )
+      {
          _model.dataProvider = results;
+         if( autoSelectFromDataProvider )
+         {
+            if( results.length > 0 )
+               _model.selectedItem = results.getItemAt( 0 );
+            else
+               _model.selectedItem = null;
+         }
+      }
+
       var m:AbstractAsyncLookupUiModel = model as AbstractAsyncLookupUiModel;
       if( m )
       {

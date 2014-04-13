@@ -17,6 +17,7 @@ public class AbstractDataGridScreenModel extends AbstractDataProviderModel
     */
    public var columnFactory:DataGridColumnFactory;
 
+
    /**
     *  Constructor
     */
@@ -24,5 +25,6 @@ public class AbstractDataGridScreenModel extends AbstractDataProviderModel
    {
       super();
    }
+
 }
 }

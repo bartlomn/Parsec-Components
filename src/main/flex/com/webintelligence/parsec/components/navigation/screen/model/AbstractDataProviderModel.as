@@ -15,6 +15,9 @@ import mx.collections.ArrayCollection;
 [Event(name="dataProviderChanged",
       type="com.webintelligence.parsec.components.navigation.event.UIScreenModelEvent")]
 
+[Event(name="selectedItemChanged",
+      type="com.webintelligence.parsec.components.navigation.event.UIScreenModelEvent")]
+
 public class AbstractDataProviderModel extends AbstractFocusClientModel
 {
 
@@ -22,6 +25,7 @@ public class AbstractDataProviderModel extends AbstractFocusClientModel
     *  @private
     */
    public var itemRendererFactory:AbstractItemRendererFactory;
+
 
    /**
     *  @private
@@ -50,12 +54,49 @@ public class AbstractDataProviderModel extends AbstractFocusClientModel
       }
    }
 
+
+   /**
+    *  @private
+    */
+   private var _selectedItem:Object;
+
+   [Bindable(event="selectedItemChanged")]
+   /**
+    *  @private
+    */
+   public function get selectedItem() : Object
+   {
+      return _selectedItem;
+   }
+   /**
+    *  @private
+    */
+   public function set selectedItem( value : Object ) : void
+   {
+      if( value != _selectedItem )
+      {
+         _log.debug( "Setting selected item: {0}", value );
+         _selectedItem = value;
+         selectedItemChangedHandler();
+         dispatchEvent( new UIScreenModelEvent( UIScreenModelEvent.SELECTED_ITEM_CHANGED ));
+      }
+   }
+
+
    /**
     *  Constructor
     */
    public function AbstractDataProviderModel()
    {
       super();
+   }
+
+   /**
+    *  @private
+    */
+   protected function selectedItemChangedHandler():void
+   {
+      _log.debug( "Selected item changed: {0}", selectedItem );
    }
 
    /**
