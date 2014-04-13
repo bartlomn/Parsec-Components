@@ -23,27 +23,32 @@ public class UIScreenModelEvent extends Event
    /**
     *  enumerates event type
     */
-   public static const FOCUS_REQUEST:String = "focusRequestReceived"
+   public static const FOCUS_REQUEST:String = "focusRequestReceived";
 
    /**
     *  enumerates event type
     */
-   public static const DATA_PROVIDER_CHANGED:String = "dataProviderChanged"
+   public static const DATA_PROVIDER_CHANGED:String = "dataProviderChanged";
 
    /**
     *  enumerates event type
     */
-   public static const LOOKUP_ITEM_CHANGED:String = "lookupItemChanged"
+   public static const LOOKUP_ITEM_CHANGED:String = "lookupItemChanged";
 
    /**
     *  enumerates event type
     */
-   public static const LOOKUP_STATE_CHANGED:String = "lookupStateChanged"
+   public static const LOOKUP_STATE_CHANGED:String = "lookupStateChanged";
 
    /**
     *  enumerates event type
     */
-   public static const LOOKUP_COLLECTION_CHANGED:String = "lookupCollectionChanged"
+   public static const LOOKUP_COLLECTION_CHANGED:String = "lookupCollectionChanged";
+
+   /**
+    *  enumerates event type
+    */
+   public static const COLUMN_PROVIDER_CHANGED:String = "columnProviderChanged";
 
    //--------------------------------------------------------------------------
    //

@@ -7,7 +7,7 @@
 
 package com.webintelligence.parsec.components.navigation.screen
 {
-import com.webintelligence.parsec.components.navigation.screen.model.AbstractDataProviderModel;
+import com.webintelligence.parsec.components.navigation.screen.model.AbstractDataGridScreenModel;
 
 import spark.components.DataGrid;
 
@@ -17,7 +17,7 @@ public class AbstractDataGridScreen extends AbstractAsyncUIScreen
    /**
     *  @private
     */
-   private var _model:AbstractDataProviderModel;
+   private var _model:AbstractDataGridScreenModel;
 
    [Bindable][SkinPart(required="true")]
    /**
@@ -39,12 +39,12 @@ public class AbstractDataGridScreen extends AbstractAsyncUIScreen
    override protected function modelChangedHandler() : void
    {
       super.modelChangedHandler();
-      _model = AbstractDataProviderModel( model );
+      _model = AbstractDataGridScreenModel( model );
       if( resultGrid && _model )
       {
-         bindToModelProperty( resultGrid, "dataProvider", ["dataProvider"]);
-//         if( _model.itemRendererFactory )
-//            resultGrid.itemR
+         if( _model.columnFactory )
+            bindToModelProperty( resultGrid, "columns", [ "columnFactory", "columns" ]);
+         bindToModelProperty( resultGrid, "dataProvider", [ "dataProvider" ]);
       }
    }
 
