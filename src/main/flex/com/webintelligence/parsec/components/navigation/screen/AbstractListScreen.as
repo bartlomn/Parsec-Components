@@ -44,7 +44,7 @@ public class AbstractListScreen extends AbstractAsyncUIScreen
       {
          bindToModelProperty( resultList, "dataProvider", ["dataProvider"]);
          if( _model.itemRendererFactory )
-            resultList.itemRendererFunction = _model.itemRendererFactory.itemRendererFunction;
+            resultList.itemRendererFunction = _model.itemRendererFactory.listItemRendererFunction;
       }
    }
 

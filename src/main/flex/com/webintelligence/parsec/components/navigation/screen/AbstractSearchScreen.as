@@ -136,7 +136,7 @@ public class AbstractSearchScreen extends AbstractListScreen
             bindToModelProperty( listBase, "selectedItem", [ "currentLookupItem" ]);
             if( searchScreenModel.lookupItemRendererFactory )
             {
-               listBase.itemRendererFunction = searchScreenModel.lookupItemRendererFactory.itemRendererFunction;
+               listBase.itemRendererFunction = searchScreenModel.lookupItemRendererFactory.listItemRendererFunction;
 
                var columnProvider:VirtualColumnRendererFactory =
                      searchScreenModel.lookupItemRendererFactory as VirtualColumnRendererFactory;

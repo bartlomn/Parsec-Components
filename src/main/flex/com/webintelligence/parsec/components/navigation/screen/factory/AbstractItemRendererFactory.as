@@ -14,6 +14,8 @@ import com.webintelligence.parsec.core.log.LogAware;
 import mx.core.ClassFactory;
 import mx.core.IFactory;
 
+import spark.components.gridClasses.GridColumn;
+
 public class AbstractItemRendererFactory extends LogAware
 {
 
@@ -90,7 +92,19 @@ public class AbstractItemRendererFactory extends LogAware
     *  @private
     *  @see: https://flex.apache.org/asdoc/spark/components/SkinnableDataContainer.html#itemRendererFunction
     */
-   public function itemRendererFunction( item:Object ):IFactory
+   public function listItemRendererFunction( item:Object ):IFactory
+   {
+      _log.info( "Creating item renderer for {0}", item ? item.toString() : null );
+      if( !_generator )
+         throw new IllegalStateError( "Invalid generator");
+      return _generator;
+   }
+
+   /**
+    *  @private
+    *  @see: http://flex.apache.org/asdoc/spark/components/gridClasses/GridColumn.html#itemRendererFunction
+    */
+   public function gridItemRendererFunction( item:Object, column:GridColumn ):IFactory
    {
       _log.info( "Creating item renderer for {0}", item ? item.toString() : null );
       if( !_generator )

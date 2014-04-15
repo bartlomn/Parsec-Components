@@ -28,6 +28,22 @@ public class GridColumnDefinition
    public var headerText:String;
 
    /**
+    *  @private
+    *  @see: GridColumn.itemRendererFunction
+    */
+   public var itemRendererFunction:Function;
+
+   /**
+    *  @private
+    */
+   public var headerRenderer:Class;
+
+   /**
+    *  @private
+    */
+   public var explicitWidth:Number;
+
+   /**
     *  Constructor
     */
    public function GridColumnDefinition()

@@ -12,6 +12,7 @@ import com.webintelligence.parsec.components.controls.grid.event.GridColumnFacto
 import com.webintelligence.parsec.core.invalidating.InvalidatingEventDispatcher;
 
 import mx.collections.ArrayList;
+import mx.core.ClassFactory;
 
 import spark.components.gridClasses.GridColumn;
 
@@ -126,6 +127,12 @@ public class DataGridColumnFactory extends InvalidatingEventDispatcher
          column.headerText = cd.headerText;
       if( cd.formatter )
          column.formatter = cd.formatter;
+      if( cd.itemRendererFunction != null )
+         column.itemRendererFunction = cd.itemRendererFunction;
+      if( cd.headerRenderer )
+         column.headerRenderer = new ClassFactory( cd.headerRenderer );
+      if( cd.explicitWidth )
+         column.width = cd.explicitWidth;
 
       return column;
    }
