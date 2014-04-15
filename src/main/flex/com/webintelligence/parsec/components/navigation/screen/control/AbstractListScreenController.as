@@ -62,31 +62,30 @@ public class AbstractListScreenController extends AbstractModelDrivenScreenContr
    /**
     *  @private
     */
-   private var _results:ArrayCollection;
+   private var _dataProvider:ArrayCollection;
 
    /**
     *  @private
     */
-   private var _resultsChanged:Boolean;
+   private var _dataProviderChanged:Boolean;
 
    /**
     *  @private
-    *  // todo: rename into dataProvider for consistency
     */
-   public function get results() : ArrayCollection
+   public function get dataProvider() : ArrayCollection
    {
-      return _results;
+      return _dataProvider;
    }
    /**
     *  @private
     */
-   public function set results( value : ArrayCollection ) : void
+   public function set dataProvider( value : ArrayCollection ) : void
    {
-      if( _results !=  value )
+      if( _dataProvider !=  value )
       {
          _log.debug( "Setting results." );
-         _results = value;
-         _resultsChanged = true;
+         _dataProvider = value;
+         _dataProviderChanged = true;
          invalidateProperties();
       }
    }
@@ -114,10 +113,10 @@ public class AbstractListScreenController extends AbstractModelDrivenScreenContr
    override protected function commitProperties() : void
    {
       super.commitProperties();
-      if( _resultsChanged )
+      if( _dataProviderChanged )
       {
          dataProviderChangedHandler();
-         _resultsChanged = false;
+         _dataProviderChanged = false;
       }
       if( _selectedItemChanged )
       {
@@ -133,7 +132,7 @@ public class AbstractListScreenController extends AbstractModelDrivenScreenContr
    override public function navigationRequestHandler( msg:INavigationRequest ):void
    {
       super.navigationRequestHandler( msg );
-      if( msg.destination == supportedDestination && !results )
+      if( msg.destination == supportedDestination && !dataProvider )
       {
          _log.debug( "Destination {0} requested but no data present.", msg.destination.stringAddress );
          makeDataRequest();
@@ -159,11 +158,11 @@ public class AbstractListScreenController extends AbstractModelDrivenScreenContr
 
       if( _model )
       {
-         _model.dataProvider = results;
+         _model.dataProvider = dataProvider;
          if( autoSelectFromDataProvider )
          {
-            if( results.length > 0 )
-               _model.selectedItem = results.getItemAt( 0 );
+            if( dataProvider.length > 0 )
+               _model.selectedItem = dataProvider.getItemAt( 0 );
             else
                _model.selectedItem = null;
          }
@@ -172,7 +171,7 @@ public class AbstractListScreenController extends AbstractModelDrivenScreenContr
       var m:AbstractAsyncLookupUiModel = model as AbstractAsyncLookupUiModel;
       if( m )
       {
-         var reqState:String = results.length > 0 ? LookupUiState.SEARCH_RESULTS : LookupUiState.NO_RESULTS;
+         var reqState:String = dataProvider.length > 0 ? LookupUiState.SEARCH_RESULTS : LookupUiState.NO_RESULTS;
          _log.debug( "Setting view model to {0} state.", reqState );
          m.uiStateName = reqState;
       }
