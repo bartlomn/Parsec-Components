@@ -13,7 +13,7 @@ import com.webintelligence.parsec.components.controls.events.ParsecRendererEvent
 import spark.components.IItemRenderer;
 
 [SkinState("upAndSelected")]
-[SkinState("oveAndSelectedr")]
+[SkinState("overAndSelected")]
 [SkinState("downAndSelected")]
 
 [Event(name="rendererSelectionChanged",
