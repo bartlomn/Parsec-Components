@@ -121,6 +121,12 @@
          <version>1.0</version>
          <type>swc</type>
       </dependency>
+      <dependency>
+         <groupId>com.worlize.gif</groupId>
+         <artifactId>AS3-gifplayer-library</artifactId>
+         <version>1.0</version>
+         <type>swc</type>
+      </dependency>
    </dependencies>
 
    <build>
