@@ -43,6 +43,7 @@ public class AbstractListScreen extends AbstractAsyncUIScreen
       if( resultList && _model )
       {
          bindToModelProperty( resultList, "dataProvider", ["dataProvider"]);
+         bindToModelProperty( resultList, "selectedItem", ["selectedItem"]);
          if( _model.itemRendererFactory )
             resultList.itemRendererFunction = _model.itemRendererFactory.listItemRendererFunction;
       }
