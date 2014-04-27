@@ -9,6 +9,11 @@ package com.webintelligence.parsec.components.navigation.screen
 {
 import com.webintelligence.parsec.components.navigation.screen.model.AbstractDataProviderModel;
 
+import flash.events.Event;
+
+import mx.binding.utils.ChangeWatcher;
+import mx.events.FlexEvent;
+
 import spark.components.List;
 
 public class AbstractListScreen extends AbstractAsyncUIScreen
@@ -42,11 +47,23 @@ public class AbstractListScreen extends AbstractAsyncUIScreen
       _model = AbstractDataProviderModel( model );
       if( resultList && _model )
       {
+         // one-way binding of data provider
          bindToModelProperty( resultList, "dataProvider", ["dataProvider"]);
+         // two-way binding of selected item
          bindToModelProperty( resultList, "selectedItem", ["selectedItem"]);
+         resultList.addEventListener( FlexEvent.VALUE_COMMIT, resultListSelectedItemChangedHandler );
          if( _model.itemRendererFactory )
             resultList.itemRendererFunction = _model.itemRendererFactory.listItemRendererFunction;
       }
+   }
+
+   /**
+    *  @private
+    */
+   protected function resultListSelectedItemChangedHandler( event:FlexEvent ):void
+   {
+      if( _model && _model.selectedItem != resultList.selectedItem )
+         _model.selectedItem = resultList.selectedItem;
    }
 
 }

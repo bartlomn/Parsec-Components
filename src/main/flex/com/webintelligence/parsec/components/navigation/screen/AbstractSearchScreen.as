@@ -180,6 +180,14 @@ public class AbstractSearchScreen extends AbstractListScreen
          searchUIComponent.enabled = uiStateName != LookupUiState.SEARCH_IN_PROGRESS;
    }
 
+   /**
+    *  @inheritDoc
+    */
+   override protected function resultListSelectedItemChangedHandler( event : FlexEvent ) : void
+   {
+      // we do not call super here, as we do not want to pass selected item from the list
+      // to model directly, as it would result in auto selection of the first patient
+   }
 
    /**
     *  @private
