@@ -62,7 +62,7 @@ public class AbstractListScreen extends AbstractAsyncUIScreen
     */
    protected function resultListSelectedItemChangedHandler( event:FlexEvent ):void
    {
-      if( _model && _model.selectedItem != resultList.selectedItem )
+      if( _model && _model.selectedItem != resultList.selectedItem && resultList.selectedItem != null )
          _model.selectedItem = resultList.selectedItem;
    }
 
