@@ -263,6 +263,11 @@ public class DestinationsAwareContainer extends ParsleyAwareContainer
    /**
     *  @private
     */
+   protected var _currentDestinationChanged:Boolean;
+
+   /**
+    *  @private
+    */
    private var _currentDestination:Destination;
 
    [Bindable( "currentDestinationChanged" )]
@@ -281,8 +286,11 @@ public class DestinationsAwareContainer extends ParsleyAwareContainer
     */
    public function set currentDestination( value:Destination ):void
    {
+      if( value == _currentDestination )
+         return;
       _currentDestination = value;
-      dispatchEvent( new NavigationContainerEvent( NavigationContainerEvent.CURRENT_DESTINATION_CHANGED ) );
+      _currentDestinationChanged = true;
+      invalidateProperties();
    }
 
    //--------------------------------------
@@ -384,6 +392,11 @@ public class DestinationsAwareContainer extends ParsleyAwareContainer
          currentDestination = _defaultDestination;
          _defaultDestination = null;
       }
+      if( _currentDestinationChanged )
+      {
+         currentDestinationChangedHandler();
+         dispatchEvent( new NavigationContainerEvent( NavigationContainerEvent.CURRENT_DESTINATION_CHANGED ) );
+      }
    }
 
    //--------------------------------------
@@ -398,6 +411,17 @@ public class DestinationsAwareContainer extends ParsleyAwareContainer
       removeParsleyHandlers();
    }
 
+
+   //--------------------------------------
+   //  currentDestinationChangedHandler
+   //--------------------------------------
+   /**
+    *  called after current destination is changed
+    */
+   protected function currentDestinationChangedHandler():void
+   {
+      null;
+   }
 
    //--------------------------------------
    //  descritptorForDestination
