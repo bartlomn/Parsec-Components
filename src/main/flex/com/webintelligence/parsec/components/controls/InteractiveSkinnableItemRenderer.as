@@ -1,5 +1,4 @@
 /**
- * Fortrus Mobius v2.0
  * User: Bart
  * Date: 03/04/2014
  * Time: 11:47
