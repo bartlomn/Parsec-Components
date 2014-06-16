@@ -13,20 +13,29 @@ import com.webintelligence.parsec.components.navigation.screen.model.AbstractDat
 import com.webintelligence.parsec.core.navigation.INavigationRequest;
 
 import mx.collections.ArrayCollection;
+import mx.events.CollectionEvent;
 
 public class AbstractListScreenController extends AbstractModelDrivenScreenController
 {
 
+
    /**
     *  @private
     */
-   private var _model:AbstractDataProviderModel;
+   private var _requireUpdateAfterCollectionRefresh:Boolean;
+
+   //----------------------------------
+   //  autoSelectFromDataProvider
+   //----------------------------------
 
    /**
     *  @private
     */
    protected var autoSelectFromDataProvider:Boolean;
 
+   //----------------------------------
+   //  selectedItem
+   //----------------------------------
 
    /**
     *  @private
@@ -59,6 +68,10 @@ public class AbstractListScreenController extends AbstractModelDrivenScreenContr
       }
    }
 
+   //----------------------------------
+   //  dataProvider
+   //----------------------------------
+
    /**
     *  @private
     */
@@ -83,12 +96,25 @@ public class AbstractListScreenController extends AbstractModelDrivenScreenContr
    {
       if( _dataProvider !=  value )
       {
+         if( dataProvider )
+            dataProvider.removeEventListener( CollectionEvent.COLLECTION_CHANGE, dataProvider_collectionChangedHandler );
+
          _log.debug( "Setting results." );
          _dataProvider = value;
          _dataProviderChanged = true;
          invalidateProperties();
       }
    }
+
+   //----------------------------------
+   //  model
+   //----------------------------------
+
+
+   /**
+    *  @private
+    */
+   private var _model:AbstractDataProviderModel;
 
    /**
     *  @inheritDoc
@@ -98,6 +124,8 @@ public class AbstractListScreenController extends AbstractModelDrivenScreenContr
       super.model = value;
       _model = model as AbstractDataProviderModel;
    }
+
+
 
    /**
     *  Constructor
@@ -122,6 +150,11 @@ public class AbstractListScreenController extends AbstractModelDrivenScreenContr
       {
          selectedItemChangedHandler();
          _selectedItemChanged = false;
+      }
+      if( _requireUpdateAfterCollectionRefresh )
+      {
+         collectionRefreshedHandler();
+         _requireUpdateAfterCollectionRefresh = false;
       }
    }
 
@@ -156,15 +189,18 @@ public class AbstractListScreenController extends AbstractModelDrivenScreenContr
    {
       _log.debug( "Data provider changed.");
 
+      if( dataProvider )
+         dataProvider.addEventListener( CollectionEvent.COLLECTION_CHANGE, dataProvider_collectionChangedHandler );
+
       if( _model )
       {
          _model.dataProvider = dataProvider;
          if( autoSelectFromDataProvider )
          {
             if( dataProvider.length > 0 )
-               _model.selectedItem = dataProvider.getItemAt( 0 );
+               selectedItem = dataProvider.getItemAt( 0 );
             else
-               _model.selectedItem = null;
+               selectedItem = null;
          }
       }
 
@@ -175,6 +211,32 @@ public class AbstractListScreenController extends AbstractModelDrivenScreenContr
          _log.debug( "Setting view model to {0} state.", reqState );
          m.uiStateName = reqState;
       }
+   }
+
+   /**
+    *  @private
+    */
+   protected function collectionRefreshedHandler():void
+   {
+      // check if selected item have not been removed from the collection
+      if( selectedItem && dataProvider && dataProvider.getItemIndex( selectedItem ) == -1 )
+      {
+         if( dataProvider.length > 0 )
+            selectedItem = dataProvider.getItemAt( 0 );
+         else
+            selectedItem = null;
+      }
+      if( !selectedItem && autoSelectFromDataProvider && dataProvider && dataProvider.length > 0 )
+         selectedItem = dataProvider.getItemAt( 0 );
+   }
+
+   /**
+    *  @private
+    */
+   private function dataProvider_collectionChangedHandler( event:CollectionEvent )
+   {
+      _requireUpdateAfterCollectionRefresh = true;
+      invalidateProperties();
    }
 
 
