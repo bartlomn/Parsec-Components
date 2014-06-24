@@ -109,14 +109,32 @@ public class InteractiveSkinnableItemRenderer
       // IItemRenderer impl
    }
 
+   /**
+    *  @private
+    */
+   private var _label:String;
+
+   /**
+    *  @private
+    */
+   private var _labelChanged:Boolean;
+
+   /**
+    *  @private
+    */
    public function get label() : String
    {
-      return "";
+      return _label;
    }
 
    public function set label( value : String ) : void
    {
-      // IItemRenderer impl
+      if( _label != value )
+      {
+         _label = value;
+         _labelChanged = true;
+         invalidateProperties();
+      }
    }
 
 
@@ -155,6 +173,11 @@ public class InteractiveSkinnableItemRenderer
          dispatchEvent( ParsecRendererEvent.forItemIndexChange());
          _itemIndexChanged = false;
       }
+      if( _labelChanged )
+      {
+         labelChangedHandler();
+         _labelChanged = false;
+      }
    }
 
    /**
@@ -169,6 +192,14 @@ public class InteractiveSkinnableItemRenderer
     *  @private
     */
    protected function selectionChangedHandler():void
+   {
+      // abstract
+   }
+
+   /**
+    *  @private
+    */
+   protected function labelChangedHandler():void
    {
       // abstract
    }

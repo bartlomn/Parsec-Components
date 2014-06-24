@@ -8,6 +8,7 @@
 package com.webintelligence.parsec.components.controls
 {
 import flash.events.Event;
+import flash.events.MouseEvent;
 
 import spark.components.supportClasses.InteractionStateDetector;
 
@@ -34,6 +35,7 @@ public class InteractiveSkinnableContainer extends InvalidatingChildrenContainer
       buttonMode = true;
       interactionStateDetector = new InteractionStateDetector( this );
       interactionStateDetector.addEventListener( Event.CHANGE, interactionStateChangeHandler);
+      addEventListener( MouseEvent.CLICK, clickHandler );
    }
    /**
     *  @inheritDoc
@@ -42,6 +44,14 @@ public class InteractiveSkinnableContainer extends InvalidatingChildrenContainer
    override protected function getCurrentSkinState():String
    {
       return interactionStateDetector.state;
+   }
+
+   /**
+    *  @private
+    */
+   protected function clickHandler( event:MouseEvent ):void
+   {
+      // abstract
    }
 
    /**
