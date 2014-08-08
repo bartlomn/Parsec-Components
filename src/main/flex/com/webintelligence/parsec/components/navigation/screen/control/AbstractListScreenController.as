@@ -233,7 +233,7 @@ public class AbstractListScreenController extends AbstractModelDrivenScreenContr
    /**
     *  @private
     */
-   private function dataProvider_collectionChangedHandler( event:CollectionEvent )
+   private function dataProvider_collectionChangedHandler( event:CollectionEvent ):void
    {
       _requireUpdateAfterCollectionRefresh = true;
       invalidateProperties();
